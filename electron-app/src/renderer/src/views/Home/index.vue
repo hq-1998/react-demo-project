@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import ArticleList from '@renderer/components/article-list/index.vue'
 import AsideBar from '@renderer/components/aside-bar/index.vue'
 import { IArticleItem } from '@renderer/components/article-list/data'
+import MenuBar from '@renderer/components/menu-bar/index.vue'
 
 interface ITagItem {
   label: string
@@ -140,6 +141,7 @@ const handleNavItemClick = (index: number) => {
 </script>
 
 <template>
+  <MenuBar />
   <main class="container">
     <div class="timeline-content">
       <div class="timeline-entry-list">
@@ -164,11 +166,7 @@ const handleNavItemClick = (index: number) => {
 
 <style lang="less" scoped>
 .container {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 960px;
-
+  top: calc(30px + 5rem + 3.833rem);
   .timeline-content {
     position: relative;
     margin-top: 0.33rem;

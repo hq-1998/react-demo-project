@@ -54,6 +54,8 @@ const setCurrentIndex = (index: number) => {
 <style lang="less" scoped>
 .main-container {
   max-width: 1200px;
+  position: relative;
+  top: calc(30px + 5rem);
 
   .setting-view {
     display: flex;

@@ -92,8 +92,8 @@ const isLogin = ref(true)
 <style lang="less" scoped>
 .main-header-box {
   .main-header {
-    position: relative;
-    top: 0px;
+    position: fixed;
+    top: 30px;
     left: 0;
     right: 0;
     transition: all 0.2s;

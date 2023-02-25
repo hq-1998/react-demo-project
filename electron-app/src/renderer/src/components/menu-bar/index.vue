@@ -76,8 +76,8 @@ const menuList = [
 
 .view-nav {
   background-color: #fff;
-  position: relative;
-  top: 0rem;
+  position: fixed;
+  top: calc(30px + 5rem);
   width: 100%;
   height: 3.833rem;
   z-index: 100;

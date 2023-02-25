@@ -125,6 +125,12 @@ const Render = () => {
   height: 30px;
   -webkit-app-region: drag;
   width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 300;
+  left: 0;
+  right: 0;
+  background-color: #f4f5f5;
 }
 
 .winTitle {
