@@ -1,0 +1,41 @@
+@import '../../styles.less';
+
+.sub-view-box {
+  .mixin-sub-view-box();
+  padding: 0px;
+  .setting-message {
+    .title {
+      padding: 16px 20px 16px 20px;
+      font-weight: 500;
+      font-size: 18px;
+      margin: 0;
+      color: var(--juejin-font-1);
+      border-bottom: 1px solid var(--juejin-gray-1-1);
+    }
+
+    .container {
+      box-sizing: border-box;
+      padding-left: 20px;
+      margin-top: 20px;
+      color: var(--juejin-font-1);
+
+      .im-title {
+        margin: unset;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .allow-send-message {
+        display: flex;
+        align-items: center;
+
+        .setting-type {
+          display: inline-block;
+          font-size: 15px;
+          margin-right: 100px;
+        }
+      }
+    }
+  }
+}

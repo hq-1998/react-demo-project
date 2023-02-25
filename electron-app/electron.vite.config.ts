@@ -16,7 +16,8 @@ export default defineConfig({
   renderer: {
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src')
+        '@renderer': resolve('src/renderer/src'),
+        '@main': resolve('src/main')
       },
       extensions: ['.ts', '.tsx', '.vue', '.json']
     },
@@ -33,6 +34,14 @@ export default defineConfig({
           })
         ]
       })
-    ]
+    ],
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(__dirname, 'src/renderer/index.html'),
+          setting: resolve(__dirname, 'src/renderer/setting.html')
+        }
+      }
+    }
   }
 })

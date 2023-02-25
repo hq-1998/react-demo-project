@@ -11,6 +11,14 @@
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron-vite.cmd"
       },
       "runtimeArgs": ["--sourcemap"]
+    },
+    {
+      "name": "Electron: Renderer",
+      "type": "chrome",
+      "request": "attach",
+      "port": 5174,
+      "webRoot": "${workspaceFolder}",
+      "timeout": 30000
     }
   ]
 }

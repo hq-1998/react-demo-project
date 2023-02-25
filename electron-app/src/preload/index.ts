@@ -2,14 +2,18 @@ import { contextBridge, IpcRenderer, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 
 type IRendererInvokeResult = Promise<unknown>
-type IRendererOnCallback = (event: Electron.IpcRendererEvent, ...args: unknown[]) => void
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type IRendererOnCallback = (event: Electron.IpcRendererEvent, ...args: any[]) => void
 
 export const api = {
-  invokeIpcName: (channel: string): IRendererInvokeResult => ipcRenderer.invoke(channel),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  invokeIpcName: (channel: string, ...args: any[]): IRendererInvokeResult =>
+    ipcRenderer.invoke(channel, args),
   onIpcName: (channel: string, callback: IRendererOnCallback): IpcRenderer =>
     ipcRenderer.on(channel, callback),
   offIpcName: (channel: string, callback: IRendererOnCallback): IpcRenderer =>
-    ipcRenderer.off(channel, callback)
+    ipcRenderer.off(channel, callback),
+  sendIpcName: (channel: string): void => ipcRenderer.send(channel)
 }
 
 if (process.contextIsolated) {

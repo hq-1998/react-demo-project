@@ -1,33 +1,15 @@
-import { app, shell, BrowserWindow } from 'electron'
-import * as path from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { app, BrowserWindow, ipcMain } from 'electron'
+import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { BindWindowEvent } from './bindWindowEvent'
+import SystemTray from './tray'
+import { APP_QUIT, SHOW_TRAY } from './event'
+import ElectronWindow from './browserWindow'
 
-let mainWindow: BrowserWindow | null = null
+let mainWindow: BrowserWindow
 
 function createWindow(): void {
-  mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
-    show: true,
-    frame: false,
-    icon: path.join(__dirname, '../../build/icon.png'),
-    webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
-      sandbox: false
-    }
-  })
-
-  mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url)
-    return { action: 'deny' }
-  })
-
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
-  } else {
-    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
-  }
+  const electronMainWindow = new ElectronWindow()
+  mainWindow = electronMainWindow.instance
 }
 
 app.whenReady().then(() => {
@@ -39,6 +21,19 @@ app.whenReady().then(() => {
   createWindow()
   BindWindowEvent.listen()
   mainWindow && BindWindowEvent.regWinEvent(mainWindow)
+  // Updater.check()
+  const systemTray = new SystemTray(mainWindow)
+  systemTray.init()
+
+  ipcMain.on(APP_QUIT, () => {
+    app.quit()
+    systemTray.destory()
+  })
+
+  ipcMain.handle(SHOW_TRAY, () => {
+    mainWindow.hide()
+    return true
+  })
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
