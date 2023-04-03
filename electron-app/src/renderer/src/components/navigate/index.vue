@@ -5,7 +5,7 @@ import { IconLeft } from '@arco-design/web-vue/es/icon/index.js'
 <template>
   <nav class="view-nav web-only">
     <li class="nav-text">
-      <a href="/">
+      <a href="/profile">
         <icon-left />
         返回个人主页
       </a>

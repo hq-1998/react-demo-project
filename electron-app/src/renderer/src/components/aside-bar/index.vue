@@ -1,5 +1,7 @@
 <script name="aside-bar" setup lang="ts">
 import SignIn from '@renderer/components/sign-in/index.vue'
+import AuthorRank from '@renderer/components/author-rank/index.vue'
+import LinkRecommend from '@renderer/components/link-recommend/index.vue'
 
 const bannerList = [
   {
@@ -38,6 +40,12 @@ const bannerList = [
           </div>
         </div>
       </a>
+    </div>
+    <div class="sidebar-block user-block">
+      <AuthorRank />
+    </div>
+    <div class="sidebar-block link-block">
+      <LinkRecommend />
     </div>
   </div>
 </template>
@@ -95,6 +103,19 @@ const bannerList = [
   font-size: 1.16rem;
   line-height: 1.29;
   color: #333;
+}
+
+.user-block {
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  border-radius: 2px;
+  margin: 1.3rem 0;
+  font-size: 1.16rem;
+  line-height: 1.29;
+  color: #333;
+}
+
+.link-block {
 }
 
 .block-body {

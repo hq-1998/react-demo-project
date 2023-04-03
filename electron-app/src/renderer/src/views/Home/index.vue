@@ -10,6 +10,10 @@ interface ITagItem {
   key: string
 }
 
+interface IMenuItem {
+  label: string
+}
+
 const list: Array<IArticleItem> = [
   {
     author: 'JasonSubmara',
@@ -133,15 +137,49 @@ const taglist: Array<ITagItem> = [
   }
 ]
 
+const menuList: Array<IMenuItem> = [
+  {
+    label: '综合'
+  },
+  {
+    label: '关注'
+  },
+  {
+    label: '后端'
+  },
+  {
+    label: '前端'
+  },
+  {
+    label: 'Android'
+  },
+  {
+    label: 'iOS'
+  },
+  {
+    label: '人工智能'
+  },
+  {
+    label: '开发工具'
+  },
+  {
+    label: '代码人生'
+  },
+  {
+    label: '阅读'
+  }
+]
+
 const currentIndex = ref(0)
 const handleNavItemClick = (index: number) => {
-  console.log(index, '===index===')
   currentIndex.value = index
 }
 </script>
 
 <template>
-  <MenuBar />
+  <MenuBar :data-source="menuList">
+    <template #extra><a>标签管理</a></template>
+  </MenuBar>
   <main class="container">
     <div class="timeline-content">
       <div class="timeline-entry-list">
@@ -167,6 +205,7 @@ const handleNavItemClick = (index: number) => {
 <style lang="less" scoped>
 .container {
   top: calc(30px + 5rem + 3.833rem);
+
   .timeline-content {
     position: relative;
     margin-top: 0.33rem;
@@ -198,6 +237,7 @@ const handleNavItemClick = (index: number) => {
             color: #007fff;
           }
         }
+
         .nav-item:not(:last-child) {
           border-right: 1px solid hsla(0, 0%, 59.2%, 0.2);
         }

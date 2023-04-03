@@ -1,0 +1,61 @@
+.action-item {
+  .author-info {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+
+    .user-link {
+      font-size: 0;
+
+      .avatar {
+        flex: 0 0 auto;
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 50%;
+      }
+    }
+
+    .author-info-content {
+      width: calc(100% - 65px);
+      margin-left: 1rem;
+      font-size: 15px;
+      color: #8a9aa9;
+
+      span {
+        margin: 0 4px;
+      }
+
+      .author-info-head {
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+
+        .author-info-item {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+          align-items: center;
+
+          .username {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 15px;
+            color: #17181a;
+          }
+
+          .vip-level {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            display: flex;
+            position: relative;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+  }
+}

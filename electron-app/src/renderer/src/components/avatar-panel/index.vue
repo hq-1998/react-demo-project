@@ -4,35 +4,43 @@ import { IconRight, IconUser } from '@arco-design/web-vue/es/icon/index.js'
 const dropList = [
   {
     label: '我的主页',
-    icon: 'icon-user'
+    icon: 'icon-user',
+    url: '/profile'
   },
   {
     label: '成长福利',
-    icon: 'icon-trophy'
+    icon: 'icon-trophy',
+    url: '/'
   },
   {
     label: '闪念笔记',
-    icon: 'icon-edit'
+    icon: 'icon-edit',
+    url: '/'
   },
   {
     label: '会员中心',
-    icon: 'icon-relation'
+    icon: 'icon-relation',
+    url: '/'
   },
   {
     label: '课程中心',
-    icon: 'icon-calendar-clock'
+    icon: 'icon-calendar-clock',
+    url: '/'
   },
   {
     label: '我的优惠',
-    icon: 'icon-gift'
+    icon: 'icon-gift',
+    url: '/coupon'
   },
   {
     label: '我的报名',
-    icon: 'icon-layers'
+    icon: 'icon-layers',
+    url: '/'
   },
   {
     label: '我的足迹',
-    icon: 'icon-tags'
+    icon: 'icon-tags',
+    url: '/footmark'
   }
 ]
 </script>
@@ -108,7 +116,7 @@ const dropList = [
     </div>
     <ul class="dropdown-list">
       <li v-for="item in dropList" :key="item.icon" class="drop-item">
-        <a class="open-menu-page">
+        <a class="open-menu-page" :href="item.url">
           <a-badge :count="9" dot :offset="[-4, 2]">
             <icon-user class="menu-icon" :size="20" />
           </a-badge>

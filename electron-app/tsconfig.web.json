@@ -5,11 +5,13 @@
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.vue",
     "src/preload/*.d.ts",
-    "src/main/event.ts"
-, "src/model"  ],
+    "src/main/event.ts",
+    "src/model"
+  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
       "@renderer/*": [
         "src/renderer/src/*"

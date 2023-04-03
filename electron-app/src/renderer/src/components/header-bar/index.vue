@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import logo from '@renderer/assets/images/logo.png'
-import {
-  IconDown,
-  IconNotification,
-  IconSearch,
-  IconCaretDown
-} from '@arco-design/web-vue/es/icon/index.js'
+import { IconDown, IconNotification, IconSearch } from '@arco-design/web-vue/es/icon/index.js'
 import Login from '@renderer/components/login/index.vue'
 import AvatarPanel from '@renderer/components/avatar-panel/index.vue'
 import { ref } from 'vue'
+import MenuBar from '@renderer/components/menu-bar/index.vue'
 
 const loginRef = ref<{
   visible: boolean
@@ -22,6 +18,34 @@ const showLogin = () => {
 const showAvatarPanel = () => {}
 
 const isLogin = ref(true)
+
+const menuList = [
+  {
+    label: '评论',
+    key: 'comment',
+    url: '/notification'
+  },
+  {
+    label: '点赞',
+    key: 'praise',
+    url: ''
+  },
+  {
+    label: '关注',
+    key: 'follow',
+    url: ''
+  },
+  {
+    label: '私信',
+    key: 'private-letter',
+    url: ''
+  },
+  {
+    label: '系统消息',
+    key: 'system-message',
+    url: ''
+  }
+]
 </script>
 
 <template>
@@ -33,14 +57,9 @@ const isLogin = ref(true)
             <img class="logo-img" :src="logo" alt="腾腾小站" />
             <span class="logo-text">腾腾小站</span>
           </a>
-          <a-dropdown>
-            <a-button type="text"><span class="icon-text">首页</span><icon-caret-down /></a-button>
-            <template #content>
-              <a-doption>Option 1</a-doption>
-              <a-doption disabled>Option 2</a-doption>
-              <a-doption :value="{ value: 'Option3' }">Option 3</a-doption>
-            </template>
-          </a-dropdown>
+          <!-- <MenuBar :style="{ top: '30px' }" :data-source="menuList"> -->
+          <!-- <template #extra><a>标签管理</a></template>
+          </MenuBar> -->
         </a-row>
 
         <a-input :style="{ width: '300px' }" placeholder="探索稀土掘金" allow-clear>
@@ -64,12 +83,10 @@ const isLogin = ref(true)
           <a-popover :content-style="{ padding: '0px' }">
             <icon-notification size="22" />
             <template #content>
-              <a-menu :default-selected-keys="['1']">
-                <a-menu-item key="1"><span class="w148">评论</span></a-menu-item>
-                <a-menu-item key="2"><span class="w148">点赞</span></a-menu-item>
-                <a-menu-item key="3"><span class="w148">关注</span></a-menu-item>
-                <a-menu-item key="4"><span class="w148">私信</span></a-menu-item>
-                <a-menu-item key="5"><span class="w148">系统消息</span></a-menu-item>
+              <a-menu :default-selected-keys="[menuList[0].key]">
+                <a-menu-item v-for="item in menuList" :key="item.key"
+                  ><a :href="item.url" class="w148">{{ item.label }}</a></a-menu-item
+                >
               </a-menu>
             </template>
           </a-popover>
@@ -144,6 +161,7 @@ const isLogin = ref(true)
   display: inline-block;
   width: 148px;
 }
+
 .icon-text {
   margin-right: 4px;
 }

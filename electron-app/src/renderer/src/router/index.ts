@@ -39,6 +39,45 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@renderer/views/User/pages/block/index.vue')
       }
     ]
+  },
+  {
+    path: '/footmark',
+    component: () => import('@renderer/views/Footmark/index.vue')
+  },
+  {
+    path: '/profile',
+    component: () => import('@renderer/views/Profile/index.vue')
+  },
+  {
+    path: '/notification',
+    component: () => import('@renderer/views/Notification/index.vue'),
+    redirect: '/notification/comment',
+    children: [
+      {
+        path: 'comment',
+        component: () => import('@renderer/views/Notification/pages/comment/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/coupon',
+    redirect: '/coupon/list',
+    children: [
+      {
+        path: 'list',
+        component: () => import('@renderer/views/Coupon/list/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/boilingPoint',
+    redirect: '/boilingPoint/new',
+    children: [
+      {
+        path: 'new',
+        component: () => import('@renderer/views/BoilingPoint/index.vue')
+      }
+    ]
   }
 ]
 

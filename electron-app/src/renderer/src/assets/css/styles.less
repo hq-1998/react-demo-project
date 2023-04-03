@@ -17,9 +17,27 @@ html {
 * {
   padding: 0;
   margin: 0;
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: hsla(0, 0%, 52.9%, .4);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+  }
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
@@ -46,8 +64,27 @@ h1 {
   margin: 0.67em 0;
 }
 
+.avatar {
+  display: inline-block;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.block {
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.shadow {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+}
+
 :root {
   --juejin-layer-1: #fff;
   --juejin-gray-1-1: #e4e6eb;
   --juejin-font-1: #252933;
+  --juejin-font-3: #8a919f;
+  --juejin-background: #f2f3f5;
 }

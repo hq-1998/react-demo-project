@@ -10,6 +10,9 @@ module.exports = {
     node: true,
     'vue/setup-compiler-macros': true
   },
+  globals: {
+    NodeJS: true
+  },
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
