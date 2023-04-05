@@ -3,8 +3,8 @@ import { BrowserWindow } from 'electron'
 import path from 'path'
 
 const defaultConfig = {
-  width: 900,
-  height: 670,
+  width: 1200,
+  height: 800,
   show: true,
   frame: false,
   icon: path.join(__dirname, '../../build/icon.png'),

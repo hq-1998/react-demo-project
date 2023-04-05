@@ -10,10 +10,6 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@renderer/views/Home/index.vue')
   },
   {
-    path: '/about',
-    component: () => import('@renderer/views/About/index.vue')
-  },
-  {
     path: '/user',
     component: () => import('@renderer/views/User/index.vue'),
     redirect: '/user/settings/profile',

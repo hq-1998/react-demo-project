@@ -1,0 +1,44 @@
+.item {
+  display: flex;
+  padding: 8px;
+
+  .hot_content {
+    flex: 1;
+
+    .content {
+      transition: color .3s;
+      font-size: 14px;
+      line-height: 24px;
+      color: #515767;
+      margin: 0;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      max-height: 48px;
+
+      .emoji {
+        vertical-align: sub;
+        width: auto;
+        height: 20px;
+        margin: 0 2px;
+      }
+    }
+
+    .count {
+      padding-top: 4px;
+      font-size: 12px;
+      line-height: 20px;
+      color: #8a919f;
+      margin: 0;
+    }
+  }
+
+  .item_img {
+    margin-left: 16px;
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+  }
+}

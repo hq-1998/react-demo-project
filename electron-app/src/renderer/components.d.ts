@@ -48,5 +48,6 @@ declare module '@vue/runtime-core' {
     SiderBar: typeof import('./src/components/sider-bar/index.vue')['default']
     SignIn: typeof import('./src/components/sign-in/index.vue')['default']
     TitleBar: typeof import('./src/components/title-bar/index.vue')['default']
+    TopicCard: typeof import('./src/components/topic-card/index.vue')['default']
   }
 }

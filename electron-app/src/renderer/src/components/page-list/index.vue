@@ -22,6 +22,34 @@ const list = [
     content: '奔波在打工路上的友友们，不要忘了停下脚步，欣赏沿途的风景哦～',
     club: '打工人的日常',
     id: 2
+  },
+  {
+    url: 'https://p3-passport.byteimg.com/img/user-avatar/00dc71aa34b1926b52c2e18811275613~100x100.awebp',
+    username: 'Hypocrite',
+    type: '前端',
+    href: '',
+    content: '定了，明天加班...',
+    club: '打工人的日常',
+    id: 3
+  },
+  {
+    url: 'https://p3-passport.byteimg.com/img/user-avatar/c5fad8b28f7cdf50f2de45d5fd415dc7~100x100.awebp',
+    username: '来自艾欧尼亚的最强王者',
+    type: '前端',
+    href: '',
+    content:
+      '张鑫旭大佬出的新书《css新世界》讲解了很多css的新属性，尤其是我们平时不常用的样式里面也讲的很详细，通过学习我们可以实现很多我们平时用css实现不了的效果，除此之外，我们还能提高对css知识的理解。',
+    club: '读书会',
+    id: 4
+  },
+  {
+    url: 'https://p3-passport.byteimg.com/img/user-avatar/9ca2f1f6c909a21f93aff757867e3986~100x100.awebp',
+    username: '苏木子',
+    type: '后端后发 @ 拒绝996',
+    href: '',
+    content: '今天放假，外面下雨，在家呆一天吧。',
+    club: '打工人的日常',
+    id: 5
   }
 ]
 </script>
@@ -38,7 +66,9 @@ const list = [
             <div class="pin-content-row middle-row">
               <div class="content-box">
                 <span class="content">
-                  <span :contenteditable="false" style="color: #1e80ff">#{{ item.href }}#</span>
+                  <span v-if="item.href" :contenteditable="false" style="color: #1e80ff"
+                    >#{{ item.href }}#</span
+                  >
                   {{ item.content }}
                 </span>
               </div>
