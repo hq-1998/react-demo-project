@@ -1,9 +1,23 @@
-<script lang="tsx" setup>
+<script setup lang="tsx">
+import { ref } from 'vue'
 import OperationBar from './components/operation-bar/index.vue'
 import Club from './components/club/index.vue'
 import AuthorInfo from './components/author-info/index.vue'
 
 const list = [
+  {
+    url: 'https://p3-passport.byteimg.com/img/user-avatar/8a0dad7e02fe4c7774528697d95c6d6e~100x100.awebp',
+    username: '前端若水',
+    type: '无业',
+    href: '',
+    content: '今天学会了如何打理花草',
+    club: '今天学到了',
+    imageList: [
+      'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2b46c2c57f74004b72c904654a135d1~tplv-k3u1fbpfcp-zoom-mark-crop-v2:240:240:0:0.awebp?',
+      'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce01e865d1c84347a071c7a106bb0e13~tplv-k3u1fbpfcp-zoom-mark-crop-v2:240:240:0:0.awebp?'
+    ],
+    id: 1
+  },
   {
     url: 'https://p3-passport.byteimg.com/img/user-avatar/e515e40f9e01ba8c9a68cfc2c2c73993~100x100.awebp',
     username: '今天宜喝冰阔落',
@@ -12,7 +26,8 @@ const list = [
     content:
       '大刘的球状闪电也很棒呀，在你无法观察到的概率云中，我会悄悄送你一朵量子玫瑰。这大概就是理科生的浪漫。',
     club: '读书会',
-    id: 1
+    imageList: [],
+    id: 2
   },
   {
     url: 'https://p3-passport.byteimg.com/img/mosaic-legacy/3795/3047680722~100x100.awebp',
@@ -21,7 +36,8 @@ const list = [
     href: '打工人的生活攻略',
     content: '奔波在打工路上的友友们，不要忘了停下脚步，欣赏沿途的风景哦～',
     club: '打工人的日常',
-    id: 2
+    imageList: [],
+    id: 3
   },
   {
     url: 'https://p3-passport.byteimg.com/img/user-avatar/00dc71aa34b1926b52c2e18811275613~100x100.awebp',
@@ -30,7 +46,8 @@ const list = [
     href: '',
     content: '定了，明天加班...',
     club: '打工人的日常',
-    id: 3
+    imageList: [],
+    id: 4
   },
   {
     url: 'https://p3-passport.byteimg.com/img/user-avatar/c5fad8b28f7cdf50f2de45d5fd415dc7~100x100.awebp',
@@ -40,7 +57,8 @@ const list = [
     content:
       '张鑫旭大佬出的新书《css新世界》讲解了很多css的新属性，尤其是我们平时不常用的样式里面也讲的很详细，通过学习我们可以实现很多我们平时用css实现不了的效果，除此之外，我们还能提高对css知识的理解。',
     club: '读书会',
-    id: 4
+    imageList: [],
+    id: 5
   },
   {
     url: 'https://p3-passport.byteimg.com/img/user-avatar/9ca2f1f6c909a21f93aff757867e3986~100x100.awebp',
@@ -49,9 +67,17 @@ const list = [
     href: '',
     content: '今天放假，外面下雨，在家呆一天吧。',
     club: '打工人的日常',
-    id: 5
+    imageList: [],
+    id: 6
   }
 ]
+
+const visible = ref(false)
+const current = ref(0)
+const handlePreview = (index: number) => {
+  visible.value = true
+  current.value = index
+}
 </script>
 
 <template>
@@ -73,7 +99,30 @@ const list = [
                 </span>
               </div>
             </div>
-            <div class="club-digg-row middle-row">
+            <div v-if="item.imageList?.length > 0" class="pin-image-row middle-row">
+              <div class="image-box-wrapper image-box">
+                <div class="image-box col-3">
+                  <a-image-preview-group
+                    v-model:visible="visible"
+                    v-model:current="current"
+                    infinite
+                    :preview-props="{
+                      popupContainer: '.pin-image-row',
+                      closable: false
+                    }"
+                    :style="{ width: '100%' }"
+                    :src-list="item.imageList"
+                  >
+                    <div v-for="(img, index) in item.imageList" :key="index" class="pin-img">
+                      <div class="image" @click="handlePreview(index)">
+                        <img :style="{ width: '100%' }" :src="img" />
+                      </div>
+                    </div>
+                  </a-image-preview-group>
+                </div>
+              </div>
+            </div>
+            <div class="middle-row">
               <Club :name="item.club" />
               <div style="flex: 1 1 auto" />
             </div>

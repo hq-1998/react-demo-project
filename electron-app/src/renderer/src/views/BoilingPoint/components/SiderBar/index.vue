@@ -1,12 +1,31 @@
 <script lang="ts" setup>
-import UserCard from '../UserCard/index.vue'
+import UserCard from '@renderer/components/user-card/index.vue'
 import RecommendCard from '../RecommendCard/index.vue'
 import BoilingCard from '../BoilingCard/index.vue'
+
+const list = [
+  {
+    name: '沸点',
+    num: 0
+  },
+  {
+    name: '圈子',
+    num: 1
+  },
+  {
+    name: '关注',
+    num: 4
+  },
+  {
+    name: '关注者',
+    num: 0
+  }
+]
 </script>
 
 <template>
   <div>
-    <UserCard />
+    <UserCard :list="list" />
     <BoilingCard />
     <RecommendCard />
     <div class="guide-link">如何玩转沸点</div>
@@ -14,20 +33,5 @@ import BoilingCard from '../BoilingCard/index.vue'
 </template>
 
 <style lang="less" scoped>
-.guide-link {
-  cursor: pointer;
-  display: block;
-  line-height: 72px;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 16px;
-  padding-left: 108px;
-  color: #515767;
-  margin-top: 20px;
-  background-image: url(//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/guide.1535752.png);
-  background-color: #fff;
-  background-size: 80px;
-  background-repeat: no-repeat;
-  background-position: 33px -1px;
-}
+@import './style.less';
 </style>

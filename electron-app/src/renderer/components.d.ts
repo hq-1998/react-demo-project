@@ -17,6 +17,9 @@ declare module '@vue/runtime-core' {
     ADropdownButton: typeof import('@arco-design/web-vue')['DropdownButton']
     AForm: typeof import('@arco-design/web-vue')['Form']
     AFormItem: typeof import('@arco-design/web-vue')['FormItem']
+    AImage: typeof import('@arco-design/web-vue')['Image']
+    AImagePreviewGroup: typeof import('@arco-design/web-vue')['ImagePreviewGroup']
+    AImg: typeof import('@arco-design/web-vue')['Img']
     AInput: typeof import('@arco-design/web-vue')['Input']
     AMenu: typeof import('@arco-design/web-vue')['Menu']
     AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
@@ -45,9 +48,12 @@ declare module '@vue/runtime-core' {
     PageList: typeof import('./src/components/page-list/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SelectCircle: typeof import('./src/components/select-circle/index.vue')['default']
     SiderBar: typeof import('./src/components/sider-bar/index.vue')['default']
     SignIn: typeof import('./src/components/sign-in/index.vue')['default']
+    SvgIcon: typeof import('./src/components/svg-icon/index.vue')['default']
     TitleBar: typeof import('./src/components/title-bar/index.vue')['default']
     TopicCard: typeof import('./src/components/topic-card/index.vue')['default']
+    UserCard: typeof import('./src/components/user-card/index.vue')['default']
   }
 }

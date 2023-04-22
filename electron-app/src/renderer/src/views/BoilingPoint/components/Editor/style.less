@@ -103,5 +103,46 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    .editor-toolbar {
+      display: flex;
+      color: #007fff;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .tool {
+        display: flex;
+        align-items: center;
+
+        .picker {
+          z-index: 12;
+          margin-right: 24px;
+          user-select: none;
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          span {
+            color: #4e5969;
+            font-size: 14px;
+            line-height: 22px;
+            transition: color .3s;
+          }
+
+          .link {
+            font-size: 13px;
+            cursor: pointer;
+            color: #4e5969;
+          }
+
+          .icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
   }
 }

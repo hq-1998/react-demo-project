@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+// import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
@@ -22,6 +23,10 @@ export default defineConfig({
       extensions: ['.ts', '.tsx', '.vue', '.json']
     },
     plugins: [
+      // createSvgIconsPlugin({
+      //   iconDirs: [resolve(process.cwd()), '/src/renderer/src/assets/icons'],
+      //   symbolId: '[name]'
+      // }),
       vue(),
       vueJsx(),
       AutoImport({

@@ -1,6 +1,12 @@
 .item {
   display: flex;
   padding: 8px;
+  color: #515767;
+
+  &:hover {
+    background-color: #f7f8fa;
+    color: #007fff;
+  }
 
   .hot_content {
     flex: 1;
@@ -9,7 +15,6 @@
       transition: color .3s;
       font-size: 14px;
       line-height: 24px;
-      color: #515767;
       margin: 0;
       display: -webkit-box;
       overflow: hidden;
@@ -17,7 +22,6 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       max-height: 48px;
-
       .emoji {
         vertical-align: sub;
         width: auto;

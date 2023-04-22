@@ -1,22 +1,15 @@
 <script setup lang="ts">
-const list = [
-  {
-    name: '沸点',
-    num: 0
-  },
-  {
-    name: '圈子',
-    num: 1
-  },
-  {
-    name: '关注',
-    num: 4
-  },
-  {
-    name: '关注者',
-    num: 0
-  }
-]
+interface Item {
+  name: string
+  num: number
+}
+
+interface IProps {
+  list: Array<Item>
+}
+const props = withDefaults(defineProps<IProps>(), {
+  list: () => []
+})
 </script>
 
 <template>
@@ -42,7 +35,7 @@ const list = [
       </div>
     </div>
     <div class="status">
-      <a v-for="item in list" :key="item.name" class="item">
+      <a v-for="item in props.list" :key="item.name" class="item">
         <div class="count">{{ item.num }}</div>
         <div class="title">{{ item.name }}</div>
       </a>
