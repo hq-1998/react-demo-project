@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { menuList as siderBarList } from './mock'
 import ArticleList from '@renderer/components/article-list/index.vue'
 import AsideBar from '@renderer/components/aside-bar/index.vue'
+import HotList from '@renderer/components/hot-list/index.vue'
 import { IArticleItem } from '@renderer/components/article-list/data'
-import MenuBar from '@renderer/components/menu-bar/index.vue'
+import SiderBar from '@renderer/components/sider-bar/index.vue'
 
 interface ITagItem {
   label: string
@@ -11,7 +13,10 @@ interface ITagItem {
 }
 
 interface IMenuItem {
-  label: string
+  title: string
+  url: string
+  icon: string
+  children?: IMenuItem[]
 }
 
 const list: Array<IArticleItem> = [
@@ -137,38 +142,7 @@ const taglist: Array<ITagItem> = [
   }
 ]
 
-const menuList: Array<IMenuItem> = [
-  {
-    label: '综合'
-  },
-  {
-    label: '关注'
-  },
-  {
-    label: '后端'
-  },
-  {
-    label: '前端'
-  },
-  {
-    label: 'Android'
-  },
-  {
-    label: 'iOS'
-  },
-  {
-    label: '人工智能'
-  },
-  {
-    label: '开发工具'
-  },
-  {
-    label: '代码人生'
-  },
-  {
-    label: '阅读'
-  }
-]
+const menuList: Array<IMenuItem> = siderBarList
 
 const currentIndex = ref(0)
 const handleNavItemClick = (index: number) => {
@@ -177,80 +151,34 @@ const handleNavItemClick = (index: number) => {
 </script>
 
 <template>
-  <MenuBar :data-source="menuList">
-    <template #extra><a>标签管理</a></template>
-  </MenuBar>
   <main class="container">
-    <div class="timeline-content">
-      <div class="timeline-entry-list">
-        <div class="list-header">
-          <div
-            v-for="(item, index) in taglist"
-            :key="item.key"
-            :class="['nav-item', currentIndex === index && 'active']"
-            @click="handleNavItemClick(index)"
-          >
-            <span>{{ item.label }}</span>
-          </div>
-        </div>
-        <ArticleList :list="list" />
+    <div class="view timeline-index-view">
+      <div class="index-nav">
+        <SiderBar :list="menuList" />
       </div>
-      <aside>
-        <AsideBar />
-      </aside>
+      <div class="timeline-content">
+        <div class="timeline-entry-list">
+          <HotList />
+          <div class="list-header">
+            <div
+              v-for="(item, index) in taglist"
+              :key="item.key"
+              :class="['nav-item', currentIndex === index && 'active']"
+              @click="handleNavItemClick(index)"
+            >
+              <span>{{ item.label }}</span>
+            </div>
+          </div>
+          <ArticleList :list="list" />
+        </div>
+        <aside>
+          <AsideBar />
+        </aside>
+      </div>
     </div>
   </main>
 </template>
 
 <style lang="less" scoped>
-.container {
-  top: calc(30px + 5rem + 3.833rem);
-
-  .timeline-content {
-    position: relative;
-    margin-top: 0.33rem;
-    display: flex;
-
-    .timeline-entry-list {
-      margin-right: 21.667rem;
-      border-radius: 2px;
-      width: 700px;
-      background-color: #fff;
-
-      .list-header {
-        display: flex;
-        align-items: center;
-        padding: 1.3rem 1rem;
-        border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.1);
-
-        .nav-item {
-          font-size: 1.17rem;
-          padding: 0 1.2rem;
-          cursor: pointer;
-          color: #909090;
-
-          &.active {
-            color: #007fff;
-          }
-
-          &:hover {
-            color: #007fff;
-          }
-        }
-
-        .nav-item:not(:last-child) {
-          border-right: 1px solid hsla(0, 0%, 59.2%, 0.2);
-        }
-      }
-    }
-
-    aside {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 20rem;
-      z-index: 1;
-    }
-  }
-}
+@import './style.less';
 </style>
