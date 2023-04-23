@@ -136,6 +136,7 @@ export default defineComponent({
           font-size: 1.33rem;
           line-height: 2rem;
           display: flex;
+          align-items: center;
           flex-direction: row;
           color: var(--juejin-font-1);
 
