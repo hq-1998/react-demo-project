@@ -39,6 +39,7 @@ declare module '@vue/runtime-core' {
     AuthorRank: typeof import('./src/components/author-rank/index.vue')['default']
     AvatarPanel: typeof import('./src/components/avatar-panel/index.vue')['default']
     Club: typeof import('./src/components/page-list/components/club/index.vue')['default']
+    CopyRight: typeof import('./src/components/copy-right/index.vue')['default']
     HeaderBar: typeof import('./src/components/header-bar/index.vue')['default']
     HotList: typeof import('./src/components/hot-list/index.vue')['default']
     Layout: typeof import('./src/components/layout/index.vue')['default']

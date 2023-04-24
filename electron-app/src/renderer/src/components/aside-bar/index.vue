@@ -2,6 +2,7 @@
 import SignIn from '@renderer/components/sign-in/index.vue'
 import AuthorRank from '@renderer/components/author-rank/index.vue'
 import LinkRecommend from '@renderer/components/link-recommend/index.vue'
+import CopyRight from '@renderer/components/copy-right/index.vue'
 
 const bannerList = [
   {
@@ -46,6 +47,9 @@ const bannerList = [
     </div>
     <div class="sidebar-block link-block">
       <LinkRecommend />
+    </div>
+    <div class="index-aside-footer">
+      <CopyRight />
     </div>
   </div>
 </template>
@@ -95,6 +99,11 @@ const bannerList = [
   overflow: hidden;
 }
 
+.index-aside-footer {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 .sidebar-block {
   background-color: #fff;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
@@ -113,9 +122,6 @@ const bannerList = [
   font-size: 1.16rem;
   line-height: 1.29;
   color: #333;
-}
-
-.link-block {
 }
 
 .block-body {

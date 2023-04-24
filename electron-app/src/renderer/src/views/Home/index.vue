@@ -124,6 +124,35 @@ const list: Array<IArticleItem> = [
     comment: 1,
     id: 7,
     url: ''
+  },
+  {
+    author: '王力国',
+    datetime: '1月前',
+    majorCategory: '前端',
+    minorCategory: 'React.js',
+    patch: 'Javascript',
+    title: '前端技术双周刊 2023-03-25：加速 JavaScript 生态系统',
+    content: 'React 新版官网发布、Electron 发布 10 年整、TypeScript 5.0 发布，热闹非凡',
+    view: 2457,
+    like: 58,
+    comment: 0,
+    id: 8,
+    url: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/78d7f448d4da41eeb4399e1640d0cab7~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?'
+  },
+  {
+    author: 'forrest酱',
+    datetime: '20天前',
+    majorCategory: '前端',
+    minorCategory: 'JavaScript',
+    patch: 'React.js',
+    title: '基于 React + Socket.io 实现简易在线文档协作编辑',
+    content:
+      '许久之前写过写一篇基于socket.io 和canvas 实现的共享协作画板 (更新) - 掘金 (juejin.cn)的文章，意犹未尽，重新捡起socket.io继续开疆拓土。 本文将介绍如何使用 ',
+    view: 1906,
+    like: 40,
+    comment: 3,
+    id: 9,
+    url: 'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2597f72c51e846f0a257f24a4c552fb2~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?'
   }
 ]
 

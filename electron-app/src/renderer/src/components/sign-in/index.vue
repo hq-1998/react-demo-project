@@ -6,7 +6,7 @@
       <div class="icon-text">
         <span class="title">
           连续签到
-          <span class="title-days">138天</span>
+          <span class="title-days">200天</span>
         </span>
         <div class="second-line">点亮在社区每一天</div>
       </div>

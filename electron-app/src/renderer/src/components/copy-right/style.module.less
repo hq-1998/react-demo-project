@@ -1,0 +1,25 @@
+.more-list {
+  line-height: 1.6;
+  color: #9aa3ab;
+
+  .item {
+    float: left;
+    margin-bottom: 8px;
+
+    a {
+      font-size: 1rem;
+      color: var(--juejin-font-3);
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      margin-right: 12px;
+    }
+  }
+
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
