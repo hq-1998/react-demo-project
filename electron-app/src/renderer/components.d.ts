@@ -31,6 +31,7 @@ declare module '@vue/runtime-core' {
     ArticleList: typeof import('./src/components/article-list/index.vue')['default']
     AsideBar: typeof import('./src/components/aside-bar/index.vue')['default']
     ASpace: typeof import('@arco-design/web-vue')['Space']
+    ATable: typeof import('@arco-design/web-vue')['Table']
     ATabPane: typeof import('@arco-design/web-vue')['TabPane']
     ATabs: typeof import('@arco-design/web-vue')['Tabs']
     ATextarea: typeof import('@arco-design/web-vue')['Textarea']

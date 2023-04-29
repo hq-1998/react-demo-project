@@ -21,28 +21,49 @@ const isLogin = ref(true)
 
 const menuList = [
   {
-    label: '评论',
+    label: '首页',
     key: 'comment',
-    url: '/notification'
+    url: '/'
   },
   {
-    label: '点赞',
-    key: 'praise',
+    label: '沸点',
+    key: 'boilingPoint',
+    url: '/boilingPoint'
+  },
+  {
+    label: '课程',
+    key: 'course',
+    tag: '上新',
     url: ''
   },
   {
-    label: '关注',
-    key: 'follow',
+    label: '直播',
+    key: 'liveBroadcast',
     url: ''
   },
   {
-    label: '私信',
-    key: 'private-letter',
+    label: '活动',
+    key: 'activity',
     url: ''
   },
   {
-    label: '系统消息',
-    key: 'system-message',
+    label: '竞赛',
+    key: 'game',
+    url: ''
+  },
+  {
+    label: '商城',
+    key: 'mail',
+    url: ''
+  },
+  {
+    label: 'APP',
+    key: 'app',
+    url: ''
+  },
+  {
+    label: '插件',
+    key: 'plugin',
     url: ''
   }
 ]
@@ -52,21 +73,18 @@ const menuList = [
   <div class="main-header-box">
     <header class="main-header">
       <div class="container">
-        <a-row align="center">
+        <div class="container-left">
           <a href="/" class="logo">
             <img class="logo-img" :src="logo" alt="腾腾小站" />
             <span class="logo-text">腾腾小站</span>
           </a>
-          <!-- <MenuBar :style="{ top: '30px' }" :data-source="menuList"> -->
-          <!-- <template #extra><a>标签管理</a></template>
-          </MenuBar> -->
-        </a-row>
+          <MenuBar :data-source="menuList" />
+        </div>
 
-        <a-input :style="{ width: '300px' }" placeholder="探索稀土掘金" allow-clear>
-          <template #append> <icon-search /> </template>
-        </a-input>
-
-        <a-row align="center" class="right-nav">
+        <div class="right-nav">
+          <a-input :style="{ width: '300px' }" placeholder="探索稀土掘金" allow-clear>
+            <template #append> <icon-search /> </template>
+          </a-input>
           <a-dropdown-button type="primary">
             创作者中心
             <template #icon>
@@ -99,7 +117,7 @@ const menuList = [
               <AvatarPanel />
             </template>
           </a-popover>
-        </a-row>
+        </div>
       </div>
     </header>
     <Login ref="loginRef" />
@@ -127,6 +145,13 @@ const menuList = [
       align-items: center;
       justify-content: space-between;
       height: 100%;
+      max-width: 1440px;
+
+      &-left {
+        display: flex;
+        height: 100%;
+        align-items: center;
+      }
 
       .avatar {
         cursor: pointer;
@@ -135,7 +160,6 @@ const menuList = [
       .logo {
         margin-right: 1rem;
         display: flex;
-        width: auto;
         font-size: 18px;
 
         &-img {
@@ -147,10 +171,13 @@ const menuList = [
 
         &-text {
           color: #323232;
+          white-space: nowrap;
         }
       }
 
       .right-nav {
+        display: flex;
+        align-items: center;
         gap: 20px;
       }
     }

@@ -1,0 +1,5 @@
+enum ERROR_CODES {
+  CANCEL_REQUEST = 'CANCEL_REQUEST'
+}
+
+export { ERROR_CODES }

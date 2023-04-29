@@ -1,5 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { IconSearch, IconDelete } from '@arco-design/web-vue/es/icon/index.js'
+import ClearRecordModal from './components/ClearRecordModal/index.vue'
+import { ref } from 'vue'
 
 const descriptList = [
   {
@@ -92,6 +94,13 @@ const descriptList = [
     ]
   }
 ]
+
+const visible = ref(true)
+
+const toggleVisible = () => {
+  visible.value = true
+  console.log(visible)
+}
 </script>
 
 <template>
@@ -107,7 +116,7 @@ const descriptList = [
               </template>
             </a-input>
           </div>
-          <div class="clear-btn">
+          <div class="clear-btn" @click="toggleVisible">
             <icon-delete :size="16" style="margin-right: 4px" />
             清空记录
           </div>
@@ -156,6 +165,7 @@ const descriptList = [
         </div>
       </div>
     </div>
+    <ClearRecordModal v-model:visible="visible" />
   </div>
 </template>
 

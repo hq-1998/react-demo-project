@@ -74,6 +74,21 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@renderer/views/BoilingPoint/index.vue')
       }
     ]
+  },
+  {
+    path: '/growthBenefits',
+    redirect: '/growthBenefits/signIn',
+    component: () => import('@renderer/views/GrowthBenefits/index.vue'),
+    children: [
+      {
+        path: 'signIn',
+        component: () => import('@renderer/views/GrowthBenefits/SignIn/index.vue')
+      },
+      {
+        path: 'level',
+        component: () => import('@renderer/views/GrowthBenefits/Level/index.vue')
+      }
+    ]
   }
 ]
 

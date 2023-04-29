@@ -1,0 +1,76 @@
+.growth-points {
+  background: #232323;
+  border-radius: 12px;
+  width: 533px;
+  height: 164px;
+  position: relative;
+
+  .title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    margin: 12px 0 0 16px;
+    position: absolute;
+  }
+
+  .levels-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    .level-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      top: 15px;
+      box-sizing: border-box;
+      padding: 0 8px;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+
+      &.selected {
+        border: 1.5px solid hsla(0, 0%, 100%, 0.2);
+        border-radius: 12px;
+        background: rgba(145, 107, 225, 0.1);
+      }
+
+      .level-score {
+        color: hsla(0, 0%, 100%, 0.6);
+        margin-bottom: 4px;
+      }
+
+      .select-arrow {
+        position: absolute;
+        top: -16px;
+        width: 16px;
+        height: 16px;
+        color: #916be1;
+      }
+
+      .level-bar {
+        width: 12px;
+        background: hsla(0, 0%, 100%, 0.24);
+        border-radius: 4px;
+        margin-bottom: 8px;
+
+        &.selected {
+          background: #916be1;
+        }
+      }
+
+      .level-text {
+        color: #232323;
+        text-align: center;
+        width: 26px;
+        height: 14px;
+        background: hsla(0, 0%, 100%, 0.24);
+        border-radius: 4px;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+    }
+  }
+}

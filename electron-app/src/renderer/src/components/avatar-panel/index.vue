@@ -10,7 +10,7 @@ const dropList = [
   {
     label: '成长福利',
     icon: 'icon-trophy',
-    url: '/'
+    url: '/growthBenefits'
   },
   {
     label: '闪念笔记',

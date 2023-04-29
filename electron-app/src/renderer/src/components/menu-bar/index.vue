@@ -2,9 +2,10 @@
 import { CSSProperties, useSlots } from 'vue'
 
 import styles from './styles.module.less'
+import { useRouter } from 'vue-router'
 
 type PropsType = {
-  dataSource: { label: string }[]
+  dataSource: { label: string; tag?: string; url: string }[]
   style?: CSSProperties
 }
 
@@ -17,11 +18,11 @@ const emit = defineEmits(['handleClickPane'])
 const slots = useSlots()
 
 const handleClickPane = (item) => {
-  console.log('???', item)
   emit('handleClickPane', item)
 }
 
 const Render = () => {
+  const router = useRouter()
   return (
     <nav style={props.style} class={styles['view-nav']}>
       <div class={styles['nav-list']}>
@@ -32,7 +33,22 @@ const Render = () => {
           lazy-load
         >
           {props.dataSource.map((item) => {
-            return <a-tab-pane key={item.label} title={item.label} />
+            return (
+              <a-tab-pane
+                key={item.label}
+                v-slots={{
+                  title: (
+                    <span
+                      onClick={() => {
+                        router.push(item.url)
+                      }}
+                    >
+                      {item.label}
+                    </span>
+                  )
+                }}
+              />
+            )
           })}
         </a-tabs>
       </div>

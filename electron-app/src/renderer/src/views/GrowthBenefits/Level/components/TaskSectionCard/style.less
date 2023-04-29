@@ -1,0 +1,75 @@
+.task-inner-wrap {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+  .task-icon {
+    width: 3.33rem;
+    height: 3.33rem;
+    object-fit: contain;
+    background-color: transparent;
+  }
+
+  .task-info {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    overflow: hidden;
+    align-items: flex-start;
+    margin: 0 0.33rem 0 0.83rem;
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .task-info-title {
+      font-size: 1.167rem;
+      color: var(--juejin-font-1);
+      font-weight: 400;
+      line-height: 1.83rem;
+    }
+
+    .task-info-desc {
+      margin-top: 0.33rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.67rem;
+      color: var(--juejin-font-2);
+    }
+  }
+
+  .task-btn {
+    margin-left: auto;
+    padding: 0;
+    width: 5.33rem;
+    height: 2.5rem;
+    color: var(--juejin-font-white);
+    border-radius: 4px;
+    font-size: 1.083rem;
+    flex: 0 0 5.33rem;
+    position: relative;
+    background: linear-gradient(102.03deg, #bea4f6 18.38%, #8259da 78.22%);
+  }
+
+  .ui-btn {
+    box-sizing: border-box;
+    line-height: 22px;
+    border: none;
+    white-space: nowrap;
+  }
+
+  button {
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .disabled {
+    background: var(--juejin-gray-1-1);
+    cursor: not-allowed;
+  }
+}
