@@ -1,4 +1,7 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
+import { RouterLink } from 'vue-router'
+import styles from './styles.module.less'
+
 type Item = {
   /** 标题 */
   title: string
@@ -13,27 +16,37 @@ type PropsType = {
   list: Item[]
 }
 
-withDefaults(defineProps<PropsType>(), {
+const props = withDefaults(defineProps<PropsType>(), {
   list: () => []
 })
+
+const Render = () => {
+  return (
+    <nav role="navigation" class={styles['dock-nav']}>
+      {props.list.map((item) => {
+        return (
+          <div key={item.title} class={styles.item}>
+            <RouterLink class={styles.title} to={item.url}>
+              <img class={styles.icon} src={item.icon} />
+              <span>{item.title}</span>
+              <div class={styles['topic_list']}>
+                {item.children?.map((child) => {
+                  return (
+                    <a key={child.title} class={styles.topic} target="_self">
+                      <span>{child.title}</span>
+                    </a>
+                  )
+                })}
+              </div>
+            </RouterLink>
+          </div>
+        )
+      })}
+    </nav>
+  )
+}
 </script>
 
 <template>
-  <nav role="navigation" class="dock-nav">
-    <div v-for="item in list" :key="item.title" class="item">
-      <RouterLink class="title" :to="item.url">
-        <img :src="item.url" class="icon" />
-        <span>{{ item.title }}</span>
-      </RouterLink>
-      <div class="topic_list">
-        <a v-for="child in item.children" :key="child.title" class="topic" target="_self">
-          <span>{{ child.title }}</span>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Render />
 </template>
-
-<style lang="less" scoped>
-@import './style.less';
-</style>

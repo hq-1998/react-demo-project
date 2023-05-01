@@ -20,7 +20,7 @@ export default defineConfig({
         '@renderer': resolve('src/renderer/src'),
         '@main': resolve('src/main')
       },
-      extensions: ['.ts', '.tsx', '.vue', '.json']
+      extensions: ['.ts', '.tsx', '.vue', '.json', '.js']
     },
     plugins: [
       // createSvgIconsPlugin({

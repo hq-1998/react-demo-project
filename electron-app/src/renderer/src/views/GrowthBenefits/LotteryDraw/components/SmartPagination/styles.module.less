@@ -1,0 +1,62 @@
+.pagenation-wrap {
+  display: flex;
+  align-items: center;
+
+  .arrow-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+
+    .arrow-icon {
+      width: 12px;
+      height: 12px;
+
+      &-left {
+        transform: rotate(180deg);
+      }
+
+      &-disabled {
+        path {
+          fill: #c9cdd4;
+        }
+      }
+
+      &-right {
+        margin-left: 16px;
+      }
+
+      &:not(:root) {
+        overflow: hidden;
+      }
+    }
+  }
+
+  .page-code {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    color: #e8f3ff;
+    line-height: 24px;
+    text-align: center;
+    background: hsla(0, 0%, 100%, .12);
+    border-radius: 50%;
+    margin-left: 16px;
+    transition: all .3s linear;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+      background: #1a54ef;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    &-active {
+      background: #1a54ef;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+}

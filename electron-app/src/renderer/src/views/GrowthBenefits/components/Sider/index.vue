@@ -1,34 +1,41 @@
-<script setup name="Sider" lang="ts">
+<script setup name="Sider" lang="tsx">
+import signIn from '@renderer/assets/icons/sign-in.svg'
+import growthLevel from '@renderer/assets/icons/growth-level.svg'
+import harvest from '@renderer/assets/icons/harvest.svg'
+import welfare from '@renderer/assets/icons/welfare.svg'
+import collectBug from '@renderer/assets/icons/collect-bug.svg'
+import gift from '@renderer/assets/icons/gift.svg'
+
 const menuList = [
   {
     title: '每日签到',
     url: 'signIn',
-    icon: ''
+    icon: signIn
   },
   {
     title: '成长等级',
     url: 'level',
-    icon: ''
+    icon: growthLevel
   },
   {
     title: '幸运抽奖',
-    url: '',
-    icon: ''
+    url: 'lotteryDraw',
+    icon: gift
   },
   {
     title: '福利兑换',
     url: '',
-    icon: ''
+    icon: welfare
   },
   {
     title: '收集Bug',
     url: '',
-    icon: ''
+    icon: collectBug
   },
   {
     title: '我的收获',
     url: '',
-    icon: ''
+    icon: harvest
   }
 ]
 </script>

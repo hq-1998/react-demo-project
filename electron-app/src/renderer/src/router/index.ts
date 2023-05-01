@@ -87,6 +87,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'level',
         component: () => import('@renderer/views/GrowthBenefits/Level/index.vue')
+      },
+      {
+        path: 'lotteryDraw',
+        component: () => import('@renderer/views/GrowthBenefits/LotteryDraw/index.vue')
       }
     ]
   }
