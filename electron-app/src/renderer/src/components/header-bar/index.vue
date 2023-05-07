@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import logo from '@renderer/assets/images/logo.png'
-import { IconDown, IconNotification, IconSearch } from '@arco-design/web-vue/es/icon/index.js'
+import { IconCaretDown, IconNotification, IconSearch } from '@arco-design/web-vue/es/icon/index.js'
 import Login from '@renderer/components/login/index.vue'
 import AvatarPanel from '@renderer/components/avatar-panel/index.vue'
 import { ref } from 'vue'
@@ -88,7 +88,7 @@ const menuList = [
           <a-dropdown-button type="primary">
             创作者中心
             <template #icon>
-              <icon-down />
+              <icon-caret-down />
             </template>
             <template #content>
               <a-doption>写文章</a-doption>

@@ -94,6 +94,7 @@
                   border-radius: 50px;
                   color: var(--juejin-brand-1-normal);
                   white-space: nowrap;
+
                   &.actived {
                     background: var(--juejin-gray-2);
                     color: var(--juejin-font-3) !important;
@@ -112,4 +113,44 @@
       }
     }
   }
+
+}
+
+.tip {
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 22px;
+  color: #86909c;
+
+  .link {
+    color: #1d7dfa;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 16px;
+
+  .finished {
+    background: #c9cdd4;
+    border-color: #c9cdd4;
+    color: #fff;
+    width: 160px;
+    height: 48px;
+    border-radius: 50px;
+    line-height: 46px;
+    padding: 0;
+    font-size: 16px;
+    border: 1px solid transparent;
+    outline: none;
+    transition: background-color .3s,color .3s;
+    cursor: pointer;
+    appearance: none;
+  }
+}
+
+::v-deep(.arco-row) {
+  flex-flow: row nowrap;
 }
