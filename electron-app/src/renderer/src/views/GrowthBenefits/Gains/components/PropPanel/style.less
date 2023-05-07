@@ -1,0 +1,115 @@
+.tab-pane {
+  .gainlist-container {
+    min-height: 560px;
+
+    .gains-wrapper {
+      position: relative;
+      box-sizing: border-box;
+      padding-top: 20px;
+      padding-left: 20px;
+
+      .list-wrapper {
+        .list {
+          display: flex;
+          flex-wrap: wrap;
+          margin: -20px 0 0 -20px;
+
+          .item {
+            display: flex;
+            align-items: center;
+            flex: 0 1 auto;
+            width: calc(50% - 30px);
+            min-width: 410px;
+            height: 116px;
+            padding-right: 6px;
+            background: var(--juejin-layer-1);
+            border: 1px solid #e5e6eb;
+            box-sizing: border-box;
+            border-radius: 4px px;
+            margin-left: 20px;
+            margin-top: 20px;
+
+            p {
+              margin: 0;
+            }
+
+            .img-wrapper {
+              width: 114px;
+              height: 114px;
+              margin-right: 16px;
+              background: var(--juejin-gray-3);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .item-icon {
+                max-width: 72px;
+                max-height: 72px;
+              }
+            }
+
+            .main {
+              flex: auto;
+
+              .goods-name {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                font-size: 16px;
+                line-height: 24px;
+                color: var(--juejin-font-1);
+                padding-bottom: 4px;
+              }
+
+              .date {
+                white-space: nowrap;
+                font-size: 14px;
+                line-height: 22px;
+                color: var(--juejin-font-3);
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              .buttons {
+                margin-top: 8px;
+                margin-left: -8px;
+                display: flex;
+                align-items: center;
+
+                .button-item {
+                  border: none;
+                  display: flex;
+                  outline: none;
+                  transition: background-color 0.3s, color 0.3s;
+                  appearance: none;
+                  align-items: center;
+                  font-size: 13px;
+                  padding: 0 8px;
+                  height: 26px;
+                  margin-left: 8px;
+                  font-weight: 500;
+                  background: var(--juejin-gray-2);
+                  border-radius: 50px;
+                  color: var(--juejin-brand-1-normal);
+                  white-space: nowrap;
+                  &.actived {
+                    background: var(--juejin-gray-2);
+                    color: var(--juejin-font-3) !important;
+                  }
+
+                  &.disabled {
+                    cursor: pointer;
+                    background: var(--juejin-gray-2);
+                    color: var(--juejin-brand-4-disable);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

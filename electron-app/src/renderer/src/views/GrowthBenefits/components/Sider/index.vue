@@ -34,7 +34,7 @@ const menuList = [
   },
   {
     title: '我的收获',
-    url: '',
+    url: 'gains',
     icon: harvest
   }
 ]

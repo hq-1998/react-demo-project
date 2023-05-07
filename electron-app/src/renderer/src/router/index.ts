@@ -91,6 +91,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'lotteryDraw',
         component: () => import('@renderer/views/GrowthBenefits/LotteryDraw/index.vue')
+      },
+      {
+        path: 'gains',
+        component: () => import('@renderer/views/GrowthBenefits/Gains/index.vue')
       }
     ]
   }

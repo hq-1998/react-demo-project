@@ -270,7 +270,7 @@ const handleTimeRight = () => {
 
 <style lang="less" scoped>
 .main-content {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 130px);
 
   .signin {
     background-color: #fff;
