@@ -1,0 +1,131 @@
+.more-list {
+  display: flex;
+  width: 402px;
+  max-height: 344px;
+  flex-direction: column;
+  padding: 16px;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+      width: 72px;
+      height: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border-radius: 2px;
+
+      &:hover {
+        background: #f7f8fa;
+        cursor: pointer;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        background-position-x: center;
+        background-position-y: center;
+      }
+    }
+  }
+
+  .divider {
+    min-height: 1px;
+    background-color: #e4e6eb;
+    margin-top: 12px;
+    margin-bottom: 17px;
+  }
+
+  .inspiration {
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 22px;
+      margin-bottom: 16px;
+
+      .title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #252933;
+      }
+
+      .more-info {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #86909c;
+        cursor: pointer;
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      height: 90px;
+
+      .item {
+        height: 22px;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+
+        .icon {
+          width: 40px;
+          height: 20px;
+          border-radius: 2px;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 20px;
+          display: inline-block;
+          text-align: center;
+          margin-right: 8px;
+        }
+
+        .topic-title {
+          &::before {
+            content: "#";
+          }
+
+          &::after {
+            content: "#";
+          }
+        }
+
+        .title {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
+          color: #252933;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 312px;
+          display: inline-block;
+
+          &:hover {
+            color: #4e5969;
+          }
+        }
+      }
+    }
+  }
+}

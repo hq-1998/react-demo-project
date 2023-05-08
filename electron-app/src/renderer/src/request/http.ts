@@ -5,20 +5,22 @@ import { ERROR_CODES } from './data'
 const instance = axios.create(baseConfig)
 const pendingRequests = new Map<string, AbortController>()
 
-const cancelPendingRequests = (url: string) => {
-  const controller = pendingRequests.get(url)
-  try {
-    controller?.abort()
-  } catch (error: unknown) {
-    console.error((error as { message: string })?.message || '请求已经被处理完成或未关联到请求')
-  } finally {
-    pendingRequests.delete(url)
+const cancelPendingRequests = (url?: string) => {
+  if (url && pendingRequests.has(url)) {
+    const controller = pendingRequests.get(url)
+    try {
+      controller?.abort()
+    } catch (error: unknown) {
+      console.error((error as { message: string })?.message || '请求已经被处理完成或未关联到请求')
+    } finally {
+      pendingRequests.delete(url)
+    }
   }
 }
 
 instance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    cancelPendingRequests(config.url!)
+    cancelPendingRequests(config.url)
     const abortController = new AbortController()
     config.signal = abortController.signal
     pendingRequests.set(config.url!, abortController)
@@ -31,7 +33,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
-    cancelPendingRequests(response.config.url!)
+    cancelPendingRequests(response.config.url)
     return response.data
   },
   (error) => {
@@ -39,7 +41,7 @@ instance.interceptors.response.use(
       return Promise.resolve(ERROR_CODES.CANCEL_REQUEST)
     }
 
-    const url = error.response?.config.error
+    const url = error.response?.config.url
 
     if (url && pendingRequests.has(url)) {
       cancelPendingRequests(url)

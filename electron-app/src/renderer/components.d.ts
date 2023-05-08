@@ -37,6 +37,7 @@ declare module '@vue/runtime-core' {
     ATabs: typeof import('@arco-design/web-vue')['Tabs']
     ATextarea: typeof import('@arco-design/web-vue')['Textarea']
     AUpload: typeof import('@arco-design/web-vue')['Upload']
+    AuthCenterPopover: typeof import('./src/components/header-bar/components/AuthCenterPopover/index.vue')['default']
     AuthorInfo: typeof import('./src/components/page-list/components/author-info/index.vue')['default']
     AuthorRank: typeof import('./src/components/author-rank/index.vue')['default']
     AvatarPanel: typeof import('./src/components/avatar-panel/index.vue')['default']

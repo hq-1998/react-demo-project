@@ -5,6 +5,7 @@ import Login from '@renderer/components/login/index.vue'
 import AvatarPanel from '@renderer/components/avatar-panel/index.vue'
 import { ref } from 'vue'
 import MenuBar from '@renderer/components/menu-bar/index.vue'
+import AuthCenterPopover from './components/AuthCenterPopover/index.vue'
 
 const loginRef = ref<{
   visible: boolean
@@ -91,11 +92,7 @@ const menuList = [
               <icon-caret-down />
             </template>
             <template #content>
-              <a-doption>写文章</a-doption>
-              <a-doption>发沸点</a-doption>
-              <a-doption>写笔记</a-doption>
-              <a-doption>写代码</a-doption>
-              <a-doption>草稿箱</a-doption>
+              <AuthCenterPopover />
             </template>
           </a-dropdown-button>
           <a-popover :content-style="{ padding: '0px' }">
@@ -132,7 +129,6 @@ const menuList = [
     left: 0;
     right: 0;
     transition: all 0.2s;
-
     background: #fff;
     border-top: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
