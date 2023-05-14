@@ -15,6 +15,16 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          modifyVars: {
+            'arcoblue-6': '#112233'
+          },
+          javascriptEnabled: true
+        }
+      }
+    },
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src'),

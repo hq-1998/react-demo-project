@@ -5,6 +5,7 @@ import CurrentLevelCard from './components/CurrentLevelCard/index.vue'
 import LevelScoreCard from './components/LevelScoreCard/index.vue'
 import LevelEquityCard from './components/LevelEquityCard/index.vue'
 import LevelBehavior from './components/LevelBehavior/index.vue'
+import points from '@renderer/assets/icons/points.svg'
 import styles from './style.module.less'
 import { levelBehaviorList, levelEquiltyList, levelScoreList } from './mock'
 
@@ -35,6 +36,14 @@ const Render = () => {
       <CommonPanel
         title="成长等级"
         v-slots={{
+          headerExtra: (
+            <div class={styles['header-rightside']}>
+              <div class={styles['jueyou-points']}>
+                <img class={styles['points-icon']} src={points} />
+                <span>掘友分明细</span>
+              </div>
+            </div>
+          ),
           content: <GrowthLevel />
         }}
       ></CommonPanel>

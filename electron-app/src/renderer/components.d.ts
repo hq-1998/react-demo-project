@@ -43,6 +43,7 @@ declare module '@vue/runtime-core' {
     AvatarPanel: typeof import('./src/components/avatar-panel/index.vue')['default']
     BaseForm: typeof import('./src/components/base-form/index.vue')['default']
     BaseModal: typeof import('./src/components/base-modal/index.vue')['default']
+    CascaderPanel: typeof import('./src/components/cascader-panel/index.vue')['default']
     Club: typeof import('./src/components/page-list/components/club/index.vue')['default']
     CopyRight: typeof import('./src/components/copy-right/index.vue')['default']
     HeaderBar: typeof import('./src/components/header-bar/index.vue')['default']

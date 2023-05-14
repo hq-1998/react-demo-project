@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import GainsTabs from './components/GainsTabs/index.vue'
 import PropPanel from './components/PropPanel/index.vue'
+import CascaderPanel from '@renderer/components/cascader-panel/index.vue'
 import { ref } from 'vue'
 
 const tabsList = [
@@ -39,6 +40,61 @@ const list = [
 ]
 
 const tabActiveIndex = ref(0)
+
+const options = [
+  {
+    value: 'beijing',
+    label: 'Beijing',
+    children: [
+      {
+        value: 'chaoyang',
+        label: 'ChaoYang',
+        children: [
+          {
+            value: 'datunli',
+            label: 'Datunli'
+          },
+          {
+            value: 'dadaguai',
+            label: 'dadaguai'
+          }
+        ]
+      },
+      {
+        value: 'haidian',
+        label: 'Haidian'
+      },
+      {
+        value: 'dongcheng',
+        label: 'Dongcheng'
+      },
+      {
+        value: 'xicheng',
+        label: 'Xicheng',
+        children: [
+          {
+            value: 'jinrongjie',
+            label: 'Jinrongjie'
+          },
+          {
+            value: 'tianqiao',
+            label: 'Tianqiao'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    value: 'shanghai',
+    label: 'Shanghai',
+    children: [
+      {
+        value: 'huangpu',
+        label: 'Huangpu'
+      }
+    ]
+  }
+]
 </script>
 
 <template>
@@ -47,6 +103,7 @@ const tabActiveIndex = ref(0)
       <GainsTabs v-model:current="tabActiveIndex" :list="tabsList" />
       <div class="tabs-content">
         <PropPanel :list="list" />
+        <CascaderPanel :options="options" />
       </div>
     </div>
   </div>

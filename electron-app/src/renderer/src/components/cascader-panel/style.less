@@ -1,0 +1,35 @@
+.cascader-wrapper {
+  display: flex;
+  box-shadow: 0 4px 10px #0000001a;
+  border: 1px solid rgb(229, 230, 235);
+  margin-left: 16px;
+  margin-bottom: 16px;
+  width: 420px;
+  min-height: 200px;
+
+  .cascader-wrapper-column {
+    border-right: 1px solid rgb(229, 230, 235);
+    flex: 1;
+    width: 100%;
+
+    &:last-child {
+      border-right: none !important;
+    }
+    .cascader-panel {
+      white-space: nowrap;
+      display: flex;
+      flex: 1;
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(242,243,245);
+      }
+
+      &-label {
+        display: inline-block;
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+  }
+}

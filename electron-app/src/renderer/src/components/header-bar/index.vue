@@ -80,10 +80,17 @@ const menuList = [
             <span class="logo-text">腾腾小站</span>
           </a>
           <MenuBar :data-source="menuList" />
+          <li class="link-item">
+            <a class="activity">
+              <img
+                src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c94f4f5c114a4bf4b5f40ae5a8d6b805~tplv-k3u1fbpfcp-no-mark:230:230:230:0.awebp"
+              />
+            </a>
+          </li>
         </div>
 
         <div class="right-nav">
-          <a-input :style="{ width: '300px' }" placeholder="探索稀土掘金" allow-clear>
+          <a-input :style="{ width: '260px' }" placeholder="探索腾腾小站" allow-clear>
             <template #append> <icon-search /> </template>
           </a-input>
           <a-dropdown-button type="primary">
@@ -151,6 +158,22 @@ const menuList = [
 
       .avatar {
         cursor: pointer;
+      }
+
+      .link-item {
+        padding: 0;
+
+        a {
+          color: var(--juejin-font-2);
+          position: relative;
+
+          img {
+            max-width: 115px;
+            vertical-align: middle;
+            position: relative;
+            object-fit: cover;
+          }
+        }
       }
 
       .logo {
