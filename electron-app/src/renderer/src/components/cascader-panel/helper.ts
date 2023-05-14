@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { uniqueId } from 'lodash-es'
-import { toRaw } from 'vue'
 
 /** 数组转对象字典
  * [{id: 1, label: 'xx', value: 'xx' }]
@@ -202,7 +201,6 @@ const initDisplayOptions = (treeMap: TreeMap) => {
 }
 
 /** 向下递归 修改子级 */
-/** TODO 顶级联动处理 */
 const downwardModify = (treeItem: NewItem, treeMap: TreeMap) => {
   const { selected, indeterminate } = treeItem
   const fn = (children, selected, indeterminate) => {
@@ -246,7 +244,6 @@ const computedModify = (selectedItem: NewItem, treeMap: TreeMap, shouldChecked: 
     selected: shouldChecked
   }
   downwardModify(treeItem, treeMap)
-  console.log(treeMap, '+++treeMap+++')
   modify.set(selectedItem.level, [treeItem])
   treeMap.set(selectedItem.id, treeItem)
   if (!parent) {
